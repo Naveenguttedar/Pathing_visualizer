@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@layer utilities {
+    /* TILE_STYLES */
+    ._tile-style {
+        @apply lg:w-[17px] md:w-[15px]  w-[12px]   lg:h-[17px] md:h-[15px] h-[12px] border-t border-r border-sky-200 cursor-pointer;
+    }
+    ._traversed-tile-style {
+        @apply _tile-style bg-cyan-500;
+    }
+    ._start-tile-style {
+        @apply _tile-style bg-green-500;
+    }
+    ._end-tile-style {
+        @apply _tile-style bg-red-600;
+    }
+    ._wall-tile-style {
+        @apply _tile-style bg-gray-200;
+    }
+    ._path-tile-style {
+        @apply _tile-style bg-green-600;
+    }
+}
