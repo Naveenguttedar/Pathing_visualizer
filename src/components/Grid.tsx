@@ -2,7 +2,7 @@ import { twMerge } from "tailwind-merge";
 import { usePathfinding } from "../hooks/usePathfinding";
 import { MAX_ROWS } from "../utils/constents";
 import { Tile } from "./Tile";
-import { MutableRefObject, useEffect, useRef } from "react";
+import { MutableRefObject , useRef } from "react";
 import {
   checkIfStartOrEnd,
   addWallTile,
@@ -43,11 +43,6 @@ export function Grid({
       setGrid(newGrid);
     }
   };
-  const reRenderCount = useRef(1);
-  useEffect(() => {
-    reRenderCount.current += 1;
-    console.log(reRenderCount.current);
-  }, [grid]);
   return (
     <div
       className={twMerge(

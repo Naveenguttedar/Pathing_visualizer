@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useState } from "react";
 import { usePathfinding } from "../hooks/usePathfinding";
 import { ALGORITHMS, MAZES, SPEEDS } from "../utils/constents";
 import { resetGrid } from "../utils/resetGrid";
@@ -31,8 +31,8 @@ export default function Navbar({
 
   const handleGenerateMaze = async (maze: MazeType) => {
     setMaze(maze);
+    resetGrid({ grid });
     if (maze == "NONE") {
-      resetGrid({ grid });
       return;
     }
     setIsDisabled(true);
@@ -45,11 +45,6 @@ export default function Navbar({
       setIsDisabled,
     });
   };
-  const reRenderCount = useRef(1);
-  useEffect(() => {
-    reRenderCount.current += 1;
-    console.log(reRenderCount.current);
-  });
   const handleRunVisualizer = () => {
     if (isGraphVisualized) {
       setIsGraphVisualized(false);
@@ -63,7 +58,6 @@ export default function Navbar({
       endTile,
       speed,
     })!;
-    console.log(traversedArr);
     animatePath(traversedArr, pathArr, startTile, endTile, speed);
     setIsDisabled(true);
     isVisualizationRunningRef.current = true;
