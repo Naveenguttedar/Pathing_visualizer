@@ -30,8 +30,6 @@ export const SPEEDS: { name: string; value: SpeedType }[] = [
   { name: "Fast", value: 0.5 },
 ];
 export const ALGORITHMS: { name: string; value: AlgorithmType }[] = [
-  { name: "Dijkstra ", value: "DIJKSTRA" },
-  { name: "A-Start", value: "A_STAR" },
   { name: "Dept Frist Search ", value: "DFS" },
   { name: "Bredth Frist Search ", value: "BFS" },
 ];
